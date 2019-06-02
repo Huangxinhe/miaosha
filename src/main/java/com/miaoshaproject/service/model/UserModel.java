@@ -8,7 +8,7 @@ public class UserModel {
     private Integer age;
     private String telphone;
     private String registerMode;
-    private String thirdParty;
+    private String thirdPartyId;
 
     private String encrptPassword;
 
@@ -32,8 +32,8 @@ public class UserModel {
         return gender;
     }
 
-    public void setGender(Byte gender) {
-        this.gender = gender;
+    public void setGender(Integer gender) {
+        this.gender = gender.byteValue();
     }
 
     public Integer getAge() {
@@ -60,12 +60,16 @@ public class UserModel {
         this.registerMode = registerMode;
     }
 
-    public String getThirdParty() {
-        return thirdParty;
+    public void setGender(Byte gender) {
+        this.gender = gender;
     }
 
-    public void setThirdParty(String thirdParty) {
-        this.thirdParty = thirdParty;
+    public String getThirdPartyId() {
+        return thirdPartyId;
+    }
+
+    public void setThirdPartyId(String thirdPartyId) {
+        this.thirdPartyId = thirdPartyId;
     }
 
     public String getEncrptPassword() {

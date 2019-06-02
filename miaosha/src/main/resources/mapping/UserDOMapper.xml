@@ -24,14 +24,21 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.miaoshaproject.dataobject.UserDO">
+    <selectKey resultType="int" keyProperty="id" order="AFTER">
+      select @@IDENTITY
+    </selectKey>
     insert into user_info (id, name, gender,
       age, telphone, register_mode, 
       third_party_id)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{gender,jdbcType=TINYINT}, 
       #{age,jdbcType=INTEGER}, #{telphone,jdbcType=VARCHAR}, #{registerMode,jdbcType=VARCHAR}, 
       #{thirdPartyId,jdbcType=VARCHAR})
+
   </insert>
   <insert id="insertSelective" parameterType="com.miaoshaproject.dataobject.UserDO">
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
+      select @@IDENTITY
+    </selectKey>
     insert into user_info
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
