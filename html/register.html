@@ -112,12 +112,13 @@
                     "name":name,
                     "otpCode":otpCode,
                 },
+                //允许session跨域
                 xhrFields:{withCredentials:true},
                 success:function (data) {
                     if(data.status == "success"){
                         alert("注册成功");
                     }else{
-                        alert("注册失败，原因为" + data.data.errMsg);
+                        alert("注册失败，原因为" + data.data);
                     }
                 },
                 error:function(){

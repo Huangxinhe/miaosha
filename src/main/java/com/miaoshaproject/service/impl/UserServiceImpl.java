@@ -6,6 +6,7 @@ import com.miaoshaproject.dataobject.UserDO;
 import com.miaoshaproject.dataobject.UserPasswordDO;
 import com.miaoshaproject.error.BussinessException;
 import com.miaoshaproject.error.EmBussinessError;
+import com.miaoshaproject.response.CommonReturnType;
 import com.miaoshaproject.service.UserService;
 import com.miaoshaproject.service.model.UserModel;
 import com.miaoshaproject.service.model.UserPasswordModel;
@@ -26,33 +27,39 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserModel getUserById(Integer id) {
-      UserDO userDO = userDOMapper.selectByPrimaryKey(id);
+        UserDO userDO = userDOMapper.selectByPrimaryKey(id);
 
-      if (userDO==null){
-          return null;
-      }
-      //通过userId 获取对应用户的加密密码信息
-      UserPasswordDO userPasswordDO =  userPasswordDOMapper.selectByUserId(userDO.getId());
+        if (userDO == null) {
+            return null;
+        }
+        //通过userId 获取对应用户的加密密码信息
+        UserPasswordDO userPasswordDO = userPasswordDOMapper.selectByUserId(userDO.getId());
 
-      return convertFrontDataObject(userDO,userPasswordDO);
+        return convertFrontDataObject(userDO, userPasswordDO);
     }
 
     @Override
     @Transactional
     public void register(UserModel userModel) throws BussinessException {
-        if (userModel==null){
+        if (userModel == null) {
             throw new BussinessException(EmBussinessError.PARAMS_VALIDATION_ERROR);
         }
-        if (StringUtils.isEmpty(userModel.getName())||
-                userModel.getGender()==null||
-                userModel.getAge()==null||
-                StringUtils.isEmpty(userModel.getTelphone())){
+        if (StringUtils.isEmpty(userModel.getName()) ||
+                userModel.getGender() == null ||
+                userModel.getAge() == null ||
+                StringUtils.isEmpty(userModel.getTelphone())) {
             throw new BussinessException(EmBussinessError.PARAMS_VALIDATION_ERROR);
         }
 
         //实现model->dataObjecy方法
         UserDO userDO = convertFromModel(userModel);
-        userDOMapper.insertSelective(userDO);
+        try {
+            userDOMapper.insertSelective(userDO);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new BussinessException(EmBussinessError.PARAMS_VALIDATION_ERROR, "手机号已存在注册！！！");
+
+        }
         userModel.setId(userDO.getId());
         UserPasswordDO userPasswordDO = convertPasswordFromModel(userModel);
 
@@ -61,8 +68,27 @@ public class UserServiceImpl implements UserService {
         return;
     }
 
-    private UserPasswordDO convertPasswordFromModel(UserModel userModel){
-        if (userModel==null){
+    @Override
+    public UserModel validateLogin(String telphone, String encrptPpassword) throws BussinessException{
+        //通过用户的手机获取用户信息
+       UserDO userDO = userDOMapper.selectByTelphone(telphone);
+       if (userDO==null){
+           throw new BussinessException(EmBussinessError.USER_LOGIN_FAIL);
+       }
+       UserPasswordDO userPasswordDO = userPasswordDOMapper.selectByUserId(userDO.getId());
+
+       UserModel userModel = convertFrontDataObject(userDO,userPasswordDO);
+
+        //比对用户信息内加密的密码是否和传输进来的密码相匹配
+        if (StringUtils.equals(encrptPpassword,userModel.getEncrptPassword())){
+            throw new BussinessException(EmBussinessError.USER_LOGIN_FAIL);
+        }
+
+        return userModel;
+    }
+
+    private UserPasswordDO convertPasswordFromModel(UserModel userModel) {
+        if (userModel == null) {
             return null;
         }
         UserPasswordDO userPasswordDO = new UserPasswordDO();
@@ -71,20 +97,20 @@ public class UserServiceImpl implements UserService {
         return userPasswordDO;
     }
 
-    private UserDO convertFromModel(UserModel userModel){
-        if (userModel==null){
+    private UserDO convertFromModel(UserModel userModel) {
+        if (userModel == null) {
             return null;
         }
         UserDO userDO = new UserDO();
-        BeanUtils.copyProperties(userModel,userDO);
+        BeanUtils.copyProperties(userModel, userDO);
         return userDO;
     }
 
-    private UserModel convertFrontDataObject(UserDO userDO, UserPasswordDO userPasswordDO){
+    private UserModel convertFrontDataObject(UserDO userDO, UserPasswordDO userPasswordDO) {
         UserModel userModel = new UserModel();
-        BeanUtils.copyProperties(userDO,userModel);
+        BeanUtils.copyProperties(userDO, userModel);
 
-        if (userPasswordDO!=null){
+        if (userPasswordDO != null) {
             userModel.setEncrptPassword(userPasswordDO.getEncrptPassword());
         }
         return userModel;
