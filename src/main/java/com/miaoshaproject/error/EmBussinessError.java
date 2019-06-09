@@ -13,7 +13,7 @@ public enum EmBussinessError implements CommonError {
     SMS_INVALID(100003,"验证码无效！！！")
     ;
 
-    private EmBussinessError(int errCode, String errMsg) {
+    EmBussinessError(int errCode, String errMsg) {
         this.errCode = errCode;
         this.errMsg = errMsg;
     }
@@ -34,7 +34,7 @@ public enum EmBussinessError implements CommonError {
 
     @Override
     public CommonError setErrMsg(String msg) {
-        this.errMsg = errMsg;
+        this.errMsg = msg;
         return this;
     }
 }

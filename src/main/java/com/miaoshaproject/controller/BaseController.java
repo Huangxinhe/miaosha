@@ -34,7 +34,7 @@ public class BaseController {
             responseData.put("errMsg", EmBussinessError.UNKNOWN_ERROR.getErrMsg());
 
         }
-        return CommonReturnType.creat(responseData);
+        return CommonReturnType.creat(responseData,"failure");
 
     }
 }

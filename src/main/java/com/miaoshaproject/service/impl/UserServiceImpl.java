@@ -10,9 +10,12 @@ import com.miaoshaproject.response.CommonReturnType;
 import com.miaoshaproject.service.UserService;
 import com.miaoshaproject.service.model.UserModel;
 import com.miaoshaproject.service.model.UserPasswordModel;
+import com.miaoshaproject.validator.ValidationResult;
+import com.miaoshaproject.validator.ValidatorImpl;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,8 +28,12 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserPasswordDOMapper userPasswordDOMapper;
 
+    @Autowired
+    private ValidatorImpl validator;
+
     @Override
     public UserModel getUserById(Integer id) {
+        //调用userDOMapper获取到对应的用户dataobject
         UserDO userDO = userDOMapper.selectByPrimaryKey(id);
 
         if (userDO == null) {
@@ -44,18 +51,22 @@ public class UserServiceImpl implements UserService {
         if (userModel == null) {
             throw new BussinessException(EmBussinessError.PARAMS_VALIDATION_ERROR);
         }
-        if (StringUtils.isEmpty(userModel.getName()) ||
-                userModel.getGender() == null ||
-                userModel.getAge() == null ||
-                StringUtils.isEmpty(userModel.getTelphone())) {
-            throw new BussinessException(EmBussinessError.PARAMS_VALIDATION_ERROR);
+
+        ValidationResult result = validator.validate(userModel);
+        if (result.isHasErrors()) {
+            throw new BussinessException(EmBussinessError.PARAMS_VALIDATION_ERROR,result.getErrMsg());
+
         }
+
+
+
+
 
         //实现model->dataObjecy方法
         UserDO userDO = convertFromModel(userModel);
         try {
             userDOMapper.insertSelective(userDO);
-        } catch (Exception e) {
+        } catch (DuplicateKeyException e) {
             e.printStackTrace();
             throw new BussinessException(EmBussinessError.PARAMS_VALIDATION_ERROR, "手机号已存在注册！！！");
 
@@ -69,18 +80,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserModel validateLogin(String telphone, String encrptPpassword) throws BussinessException{
+    public UserModel validateLogin(String telphone, String encrptPpassword) throws BussinessException {
         //通过用户的手机获取用户信息
-       UserDO userDO = userDOMapper.selectByTelphone(telphone);
-       if (userDO==null){
-           throw new BussinessException(EmBussinessError.USER_LOGIN_FAIL);
-       }
-       UserPasswordDO userPasswordDO = userPasswordDOMapper.selectByUserId(userDO.getId());
+        UserDO userDO = userDOMapper.selectByTelphone(telphone);
+        if (userDO == null) {
+            throw new BussinessException(EmBussinessError.USER_LOGIN_FAIL);
+        }
+        UserPasswordDO userPasswordDO = userPasswordDOMapper.selectByUserId(userDO.getId());
 
-       UserModel userModel = convertFrontDataObject(userDO,userPasswordDO);
+        UserModel userModel = convertFrontDataObject(userDO, userPasswordDO);
 
         //比对用户信息内加密的密码是否和传输进来的密码相匹配
-        if (StringUtils.equals(encrptPpassword,userModel.getEncrptPassword())){
+        if (!StringUtils.equals(encrptPpassword, userModel.getEncrptPassword())) {
             throw new BussinessException(EmBussinessError.USER_LOGIN_FAIL);
         }
 
