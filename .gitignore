@@ -1,29 +1,8 @@
-# Created by .ignore support plugin (hsz.mobi)
-# for Mac OS X System Files
-.DS_Store
-Thumbs.db
-
-# for emacs
-*~
-[#]*[#]
-
-# for Eclipse
-*.project
-
-# for Logs and databases
-*.log
-
-# remove SVN
-.svn
-
-# for Xcode
-.*.swp
-.clang_complete
-*.xcodeproj/project.xcworkspace/
-*.xcodeproj/xcuserdata/
-
-# for IDEA
-*/build/*
-.idea/*
+*/target
 *.iml
-/out/*
+/.idea
+*.class
+target/
+.project
+.settings/
+.classpath
