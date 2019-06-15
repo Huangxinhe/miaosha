@@ -108,6 +108,11 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <update id="decreaseStock" parameterType="com.miaoshaproject.dataobject.ItemStockDO">
+    update item_stock
+    set stock = stock-#{amount}
+    where id = #{itemId} and stock>=#{amount}
+  </update>
   <update id="updateByPrimaryKey" parameterType="com.miaoshaproject.dataobject.ItemStockDO">
     <!--
       WARNING - @mbg.generated

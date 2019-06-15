@@ -22,7 +22,7 @@ public class OrderModel {
     private BigDecimal itemPrice;
 
     //购买数量
-    private Integer amoumnt;
+    private Integer amount;
 
     //购买金额
     private BigDecimal orderPrice;
@@ -59,12 +59,12 @@ public class OrderModel {
         this.itemPrice = itemPrice;
     }
 
-    public Integer getAmoumnt() {
-        return amoumnt;
+    public Integer getAmount() {
+        return amount;
     }
 
-    public void setAmoumnt(Integer amoumnt) {
-        this.amoumnt = amoumnt;
+    public void setAmount(Integer amount) {
+        this.amount = amount;
     }
 
     public BigDecimal getOrderPrice() {

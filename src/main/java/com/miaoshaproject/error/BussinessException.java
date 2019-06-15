@@ -11,7 +11,7 @@ public class BussinessException extends Exception implements CommonError{
     }
     @Override
     public int getErrCode() {
-        return 0;
+        return this.commonError.getErrCode();
     }
 
     public BussinessException(CommonError commonError,String errMsg){
