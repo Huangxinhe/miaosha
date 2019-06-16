@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 public class PromoModel {
     private Integer id;
 
-    //秒杀活动状态 1：表示还未开始，2：表示进行中，3：表示已经结束
+    //秒杀活动状态1表示还未开始 2表示进行中，3表示已结束
     private Integer status;
 
     //秒杀活动名称
@@ -39,6 +39,14 @@ public class PromoModel {
         this.id = id;
     }
 
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
     public String getPromoName() {
         return promoName;
     }
@@ -55,6 +63,14 @@ public class PromoModel {
         this.startDate = startDate;
     }
 
+    public DateTime getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(DateTime endDate) {
+        this.endDate = endDate;
+    }
+
     public Integer getItemId() {
         return itemId;
     }
@@ -69,21 +85,5 @@ public class PromoModel {
 
     public void setPromoItemPrice(BigDecimal promoItemPrice) {
         this.promoItemPrice = promoItemPrice;
-    }
-
-    public DateTime getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(DateTime endDate) {
-        this.endDate = endDate;
-    }
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
     }
 }

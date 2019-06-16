@@ -152,7 +152,7 @@
             startTime = (new Date(startTime)).getTime();
             var nowTime = Date.parse(new Date());
             var delta = (startTime - nowTime)/1000;
-            if(delta <= 0){
+            if(delta <=0){
                 //活动开始了
                 g_itemVO.promoStatus = 2;
                 reloadDom();

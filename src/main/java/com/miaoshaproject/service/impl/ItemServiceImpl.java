@@ -7,7 +7,9 @@ import com.miaoshaproject.dataobject.ItemStockDO;
 import com.miaoshaproject.error.BussinessException;
 import com.miaoshaproject.error.EmBussinessError;
 import com.miaoshaproject.service.ItemService;
+import com.miaoshaproject.service.PromoService;
 import com.miaoshaproject.service.model.ItemModel;
+import com.miaoshaproject.service.model.PromoModel;
 import com.miaoshaproject.validator.ValidationResult;
 import com.miaoshaproject.validator.ValidatorImpl;
 import org.springframework.beans.BeanUtils;
@@ -36,6 +38,9 @@ public class ItemServiceImpl implements ItemService {
 
     @Autowired
     private ItemStockDOMapper itemStockDOMapper;
+
+    @Autowired
+    private PromoService promoService;
 
     private ItemDO convertItemDOFromItemModel(ItemModel itemModel) {
         if (itemModel == null) {
@@ -111,6 +116,13 @@ public class ItemServiceImpl implements ItemService {
         ItemModel itemModel = convertModelFromDataObject(itemDO, itemStockDO);
 
 
+        //获取活动商品信息
+        PromoModel promoModel = promoService.getPromoByItemId(itemModel.getId());
+
+        if (promoModel != null&&promoModel.getStatus().intValue()!=3) {
+            itemModel.setPromoModel(promoModel);
+        }
+
         return itemModel;
     }
 
@@ -118,11 +130,11 @@ public class ItemServiceImpl implements ItemService {
     @Override
     @Transactional
     public boolean decreaseStock(Integer itemId, Integer amount) throws BussinessException {
-        int affectRow = itemStockDOMapper.decreaseStock(itemId,amount);
-        if (affectRow>0){
+        int affectRow = itemStockDOMapper.decreaseStock(itemId, amount);
+        if (affectRow > 0) {
             //更新库存成功
             return true;
-        }else {
+        } else {
             //更新库存失败
             return false;
         }
@@ -131,7 +143,7 @@ public class ItemServiceImpl implements ItemService {
     @Override
     @Transactional
     public void increaseSales(Integer itemId, Integer amount) throws BussinessException {
-        itemDOMapper.increaseSales(itemId,amount);
+        itemDOMapper.increaseSales(itemId, amount);
     }
 
     private ItemModel convertModelFromDataObject(ItemDO itemDO, ItemStockDO itemStockDO) {
