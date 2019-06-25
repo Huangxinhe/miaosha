@@ -6,22 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="ed62b631-66f6-453d-bed6-61138a901eb7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/createitem.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/createitem.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/getitem.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/getitem.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/getopt.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/getopt.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/miaoshaproject/controller/ItemController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/miaoshaproject/controller/ItemController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/miaoshaproject/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/miaoshaproject/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/miaoshaproject/controller/viewobject/ItemVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/miaoshaproject/controller/viewobject/ItemVO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/miaoshaproject/dao/ItemDOMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/miaoshaproject/dao/ItemDOMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/miaoshaproject/dao/ItemStockDOMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/miaoshaproject/dao/ItemStockDOMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/miaoshaproject/error/BussinessException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/miaoshaproject/error/BussinessException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/miaoshaproject/error/EmBussinessError.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/miaoshaproject/error/EmBussinessError.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/miaoshaproject/service/ItemService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/miaoshaproject/service/ItemService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/miaoshaproject/service/impl/ItemServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/miaoshaproject/service/impl/ItemServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/miaoshaproject/service/model/PromoModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/miaoshaproject/service/model/PromoModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/miaosha-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/miaosha-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/listitem.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/listitem.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/register.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -54,9 +44,9 @@
         <counts>
           <entry key="1" value="6" />
           <entry key="class" value="52" />
-          <entry key="gitignore" value="3" />
+          <entry key="gitignore" value="4" />
           <entry key="iml" value="1" />
-          <entry key="java" value="150" />
+          <entry key="java" value="152" />
           <entry key="json" value="3" />
           <entry key="properties" value="7" />
           <entry key="xml" value="47" />
@@ -65,9 +55,9 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="52" />
-          <entry key="Git file" value="3" />
+          <entry key="Git file" value="4" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="150" />
+          <entry key="JAVA" value="152" />
           <entry key="JSON" value="3" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="Properties" value="7" />
@@ -79,7 +69,7 @@
           <entry key="class" value="1" />
           <entry key="ft" value="1" />
           <entry key="gitignore" value="5" />
-          <entry key="java" value="12506" />
+          <entry key="java" value="12575" />
           <entry key="properties" value="344" />
           <entry key="txt" value="32" />
           <entry key="xml" value="1508" />
@@ -89,7 +79,7 @@
         <counts>
           <entry key="CLASS" value="1" />
           <entry key="Git file" value="5" />
-          <entry key="JAVA" value="12506" />
+          <entry key="JAVA" value="12575" />
           <entry key="PLAIN_TEXT" value="32" />
           <entry key="Properties" value="344" />
           <entry key="SQL" value="13" />
@@ -104,29 +94,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="35" lean-forward="true" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+            <state relative-caret-position="120">
+              <caret line="8" column="11" lean-forward="true" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/error/CodeMsg.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="769">
-              <caret line="64" column="1" selection-start-line="64" selection-start-column="1" selection-end-line="64" selection-end-column="1" />
+            <state relative-caret-position="241">
+              <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
               <folding>
-                <element signature="e#1118#1119#0" expanded="true" />
-                <element signature="e#1145#1146#0" expanded="true" />
-                <element signature="e#1181#1182#0" expanded="true" />
-                <element signature="e#1213#1214#0" expanded="true" />
-                <element signature="e#1242#1243#0" expanded="true" />
-                <element signature="e#1268#1269#0" expanded="true" />
-                <element signature="e#1305#1306#0" expanded="true" />
-                <element signature="e#1335#1336#0" expanded="true" />
-                <element signature="e#1563#1564#0" expanded="true" />
-                <element signature="e#1632#1633#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="10" lean-forward="true" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -150,10 +140,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/controller/ItemController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="62" selection-start-line="62" selection-end-line="62" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/config/WebServerConfiguration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="27" column="50" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
+            <state relative-caret-position="286">
+              <caret line="25" column="94" lean-forward="true" selection-start-line="25" selection-start-column="94" selection-end-line="25" selection-end-column="94" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -184,30 +186,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="271">
               <caret line="25" column="25" lean-forward="true" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/impl/OrderServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="47" selection-start-line="47" selection-end-line="48" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/controller/BaseController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="28" selection-start-line="28" selection-end-line="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -367,9 +345,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="717" />
+    <option name="x" value="1039" />
     <option name="y" value="23" />
-    <option name="width" value="963" />
+    <option name="width" value="641" />
     <option name="height" value="938" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -435,6 +413,25 @@
               <item name="miaoshaproject" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
               <item name="WebServerConfiguration" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="miaosha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="miaosha" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="miaoshaproject" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="miaosha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="miaosha" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="miaoshaproject" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="UserController" type="1a9f42e2:ClassTreeNode" />
             </path>
             <path>
               <item name="miaosha" type="b2602c69:ProjectViewProjectNode" />
@@ -566,7 +563,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;jar:///Users/huangxinhe/.m2/repository/org/springframework/boot/spring-boot/2.0.5.RELEASE/spring-boot-2.0.5.RELEASE.jar!/META-INF/spring-configuration-metadata.json&#10;spring-config&#9;FILE&#9;jar:///Users/huangxinhe/.m2/repository/org/mybatis/spring/boot/mybatis-spring-boot-autoconfigure/1.3.1/mybatis-spring-boot-autoconfigure-1.3.1.jar!/META-INF/spring-configuration-metadata.json&#10;spring-con&#9;FILE&#9;jar:///Users/huangxinhe/.m2/repository/org/springframework/boot/spring-boot/2.0.5.RELEASE/spring-boot-2.0.5.RELEASE.jar!/META-INF/spring-configuration-metadata.json&#10;OrderSe&#9;FILE&#9;file:///Users/huangxinhe/Documents/project/miaosha/src/main/java/com/miaoshaproject/service/OrderService.java&#10;OrderDo&#9;FILE&#9;file:///Users/huangxinhe/Documents/project/miaosha/src/main/resources/mapping/OrderDOMapper.xml&#10;OrderD&#9;FILE&#9;file:///Users/huangxinhe/Documents/project/miaosha/src/main/java/com/miaoshaproject/dataobject/OrderDO.java&#10;OrderM&#9;FILE&#9;file:///Users/huangxinhe/Documents/project/miaosha/src/main/java/com/miaoshaproject/service/model/OrderModel.java&#10;ItemV&#9;FILE&#9;file:///Users/huangxinhe/Documents/project/miaosha/src/main/java/com/miaoshaproject/controller/viewobject/ItemVO.java&#10;ItemVO&#9;PSI&#9;JAVA://com.miaoshaproject.controller.viewobject.ItemVO&#10;ItemMo&#9;FILE&#9;file:///Users/huangxinhe/Documents/project/miaosha/src/main/java/com/miaoshaproject/service/model/ItemModel.java&#10;UserCon&#9;PSI&#9;JAVA://com.miaoshaproject.controller.UserController&#10;UserDO&#9;PSI&#9;JAVA://com.miaoshaproject.dataobject.UserDO&#10;mybatis-generator&#9;RUN_CONFIGURATION&#9;mybatis-generator" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561301887525" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561476426153" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -724,18 +721,18 @@
       <workItem from="1560065839093" duration="1760000" />
       <workItem from="1560070894047" duration="22803000" />
       <workItem from="1560674465704" duration="13400000" />
-      <workItem from="1561201683182" duration="3189000" />
+      <workItem from="1561201683182" duration="4836000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123334000" />
+    <option name="totallyTimeSpent" value="124981000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="717" y="23" width="963" height="938" extended-state="0" />
+    <frame x="1039" y="23" width="641" height="938" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" x="1404" y="212" width="228" height="584" id="Project" order="0" visible="true" weight="0.034744844" />
+      <window_info active="true" content_ui="combo" x="1404" y="212" width="228" height="584" id="Project" order="0" visible="true" weight="0.30717862" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -745,8 +742,8 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32978722" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.785" visible="true" weight="0.32269505" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49875" weight="0.30496454" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.785" weight="0.32269505" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49875" visible="true" weight="0.30496454" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -851,6 +848,18 @@
           <properties />
           <option name="timeStamp" value="80" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/controller/ItemController.java</url>
+          <line>42</line>
+          <properties />
+          <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/controller/ItemController.java</url>
+          <line>62</line>
+          <properties />
+          <option name="timeStamp" value="83" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
@@ -888,13 +897,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.0.9.RELEASE/spring-core-5.0.9.RELEASE.jar!/org/springframework/util/Assert.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="74" selection-start-line="74" selection-end-line="74" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.0.9.RELEASE/spring-beans-5.0.9.RELEASE.jar!/org/springframework/beans/BeanUtils.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="254">
@@ -1100,16 +1102,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1322">
-          <caret line="120" column="21" lean-forward="true" selection-start-line="120" selection-start-column="21" selection-end-line="120" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/src.zip!/javax/xml/transform/Result.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-14">
@@ -1145,16 +1137,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/controller/ItemController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="28" column="41" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1207,13 +1189,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="35" lean-forward="true" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="259">
@@ -1258,8 +1233,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/config/WebServerConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="27" column="50" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
+        <state relative-caret-position="286">
+          <caret line="25" column="94" lean-forward="true" selection-start-line="25" selection-start-column="94" selection-end-line="25" selection-end-column="94" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="10" lean-forward="true" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="11" lean-forward="true" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/controller/ItemController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="62" selection-start-line="62" selection-end-line="62" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
