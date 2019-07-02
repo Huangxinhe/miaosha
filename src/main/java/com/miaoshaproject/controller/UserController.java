@@ -10,6 +10,7 @@ import com.miaoshaproject.service.UserService;
 import com.miaoshaproject.service.model.UserModel;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,6 +23,8 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Random;
+import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 @Controller("user")
 @RequestMapping("/user")
@@ -33,6 +36,9 @@ public class UserController extends BaseController {
 
     @Autowired
     private HttpServletRequest httpServletRequest;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     //用户登陆接口
     @RequestMapping(value = "/login", method = {RequestMethod.POST}, consumes = {CONTENT_TYPE_FORMED})
@@ -46,11 +52,23 @@ public class UserController extends BaseController {
 
         //用户登陆服务，用来校验用户登录是否合法
         UserModel userModel = userService.validateLogin(telphone, this.EncodeByMd5(passwprd));
-        // 加入到用户登陆成功的session内
-        this.httpServletRequest.getSession().setAttribute("IS_LOGIN", true);
-        this.httpServletRequest.getSession().setAttribute("LOGIN_USER", userModel);
+        // 将登录凭证加入到用户登录成功的session内
 
-        return CommonReturnType.creat(null);
+        //修改成若用户登录成功后将对应的登录信息和登录凭证一起存入redis
+
+        //生成登录凭证token，UUID
+        String uuidToken =  UUID.randomUUID().toString();
+        uuidToken = uuidToken.replace("-","");
+
+        //建立token和用户登录态的之间的联系
+        redisTemplate.opsForValue().set(uuidToken,userModel);
+        redisTemplate.expire(uuidToken,1, TimeUnit.HOURS);
+
+//        this.httpServletRequest.getSession().setAttribute("IS_LOGIN", true);
+//        this.httpServletRequest.getSession().setAttribute("LOGIN_USER", userModel);
+
+        //下发token
+        return CommonReturnType.creat(uuidToken);
     }
 
     //用户注册接口

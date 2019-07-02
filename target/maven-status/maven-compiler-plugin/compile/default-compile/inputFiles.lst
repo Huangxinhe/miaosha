@@ -23,12 +23,14 @@
 /Users/huangxinhe/Documents/project/miaosha/src/main/java/com/miaoshaproject/error/CodeMsg.java
 /Users/huangxinhe/Documents/project/miaosha/src/main/java/com/miaoshaproject/dao/ItemStockDOMapper.java
 /Users/huangxinhe/Documents/project/miaosha/src/main/java/com/miaoshaproject/service/ItemService.java
+/Users/huangxinhe/Documents/project/miaosha/src/main/java/com/miaoshaproject/config/WebServerConfiguration.java
 /Users/huangxinhe/Documents/project/miaosha/src/main/java/com/miaoshaproject/dao/SequenceDOMapper.java
 /Users/huangxinhe/Documents/project/miaosha/src/main/java/com/miaoshaproject/dao/OrderDOMapper.java
 /Users/huangxinhe/Documents/project/miaosha/src/main/java/com/miaoshaproject/service/impl/OrderServiceImpl.java
 /Users/huangxinhe/Documents/project/miaosha/src/main/java/com/miaoshaproject/service/model/ItemModel.java
 /Users/huangxinhe/Documents/project/miaosha/src/main/java/com/miaoshaproject/controller/GlobalExceptionHandler.java
 /Users/huangxinhe/Documents/project/miaosha/src/main/java/com/miaoshaproject/controller/viewobject/ItemVO.java
+/Users/huangxinhe/Documents/project/miaosha/src/main/java/com/miaoshaproject/config/RedisConfig.java
 /Users/huangxinhe/Documents/project/miaosha/src/main/java/com/miaoshaproject/controller/BaseController.java
 /Users/huangxinhe/Documents/project/miaosha/src/main/java/com/miaoshaproject/validator/ValidationResult.java
 /Users/huangxinhe/Documents/project/miaosha/src/main/java/com/miaoshaproject/controller/UserController.java

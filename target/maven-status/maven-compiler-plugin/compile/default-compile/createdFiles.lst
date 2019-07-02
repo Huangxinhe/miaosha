@@ -2,7 +2,9 @@ com/miaoshaproject/response/Result.class
 com/miaoshaproject/response/CommonReturnType.class
 com/miaoshaproject/service/PromoService.class
 com/miaoshaproject/dataobject/ItemStockDO.class
+com/miaoshaproject/config/WebServerConfiguration.class
 com/miaoshaproject/controller/ItemController.class
+com/miaoshaproject/config/WebServerConfiguration$1.class
 com/miaoshaproject/controller/GlobalExceptionHandler.class
 com/miaoshaproject/dataobject/SequenceDO.class
 com/miaoshaproject/service/impl/PromoServiceImpl.class
@@ -38,6 +40,7 @@ com/miaoshaproject/error/EmBussinessError.class
 com/miaoshaproject/dao/ItemStockDOMapper.class
 com/miaoshaproject/controller/BaseController.class
 com/miaoshaproject/dataobject/PromoDO.class
+com/miaoshaproject/config/RedisConfig.class
 com/miaoshaproject/service/impl/UserServiceImpl.class
 com/miaoshaproject/controller/UserController.class
 com/miaoshaproject/dataobject/UserPasswordDO.class
