@@ -1,10 +1,9 @@
 package com.miaoshaproject.controller;
 
-//import com.alibaba.fastjson.JSON;
-//import com.alibaba.fastjson.JSONObject;
 import com.miaoshaproject.controller.viewobject.ItemVO;
 import com.miaoshaproject.error.BussinessException;
 import com.miaoshaproject.response.CommonReturnType;
+import com.miaoshaproject.service.CacheService;
 import com.miaoshaproject.service.ItemService;
 import com.miaoshaproject.service.model.ItemModel;
 import org.joda.time.format.DateTimeFormat;
@@ -38,6 +37,9 @@ public class ItemController extends BaseController {
     @Autowired
     private RedisTemplate redisTemplate;
 
+    @Autowired
+    private CacheService cacheService;
+
     //创建商品的controller
     @RequestMapping(value = "/create", method = {RequestMethod.POST}, consumes = {CONTENT_TYPE_FORMED})
     @ResponseBody
@@ -66,16 +68,25 @@ public class ItemController extends BaseController {
     @ResponseBody
     public CommonReturnType getItem(@RequestParam(name = "id") Integer id) {
 
-        //根据商品Id到redis内获取
-        ItemModel itemModel = (ItemModel) redisTemplate.opsForValue().get("item_"+id);
+        ItemModel itemModel = null;
 
-        //若redis内不存在对应的itemModel，则访问下游的service
-        if (itemModel == null){
-            itemModel = itemService.getItemById(id);
-            //设置itemModel到redis内
-            redisTemplate.opsForValue().set("item_"+id,itemModel);
-            redisTemplate.expire("item_"+id,10, TimeUnit.HOURS);
+        //先取本地缓存
+        itemModel = (ItemModel) cacheService.getFromCommonCache("item_" + id);
+
+        if (itemModel == null) {
+            //根据商品Id到redis内获取
+            itemModel = (ItemModel) redisTemplate.opsForValue().get("item_" + id);
+
+            //若redis内不存在对应的itemModel，则访问下游的service
+            if (itemModel == null) {
+                itemModel = itemService.getItemById(id);
+                //设置itemModel到redis内
+                redisTemplate.opsForValue().set("item_" + id, itemModel);
+                redisTemplate.expire("item_" + id, 10, TimeUnit.HOURS);
+            }
+            cacheService.setCommonCache("item_"+id,itemModel);
         }
+
 
 
         ItemVO itemVO = convertVOFromModel(itemModel);
@@ -104,13 +115,13 @@ public class ItemController extends BaseController {
         }
         ItemVO itemVO = new ItemVO();
         BeanUtils.copyProperties(itemModel, itemVO);
-        if (itemModel.getPromoModel()!=null){
+        if (itemModel.getPromoModel() != null) {
             //有正在进行或即将进行的秒杀活动
             itemVO.setPromoStatus(itemModel.getPromoModel().getStatus());
             itemVO.setPromoId(itemModel.getPromoModel().getId());
             itemVO.setStartDate(itemModel.getPromoModel().getStartDate().toString(DateTimeFormat.forPattern("YYYY-MM-dd HH:mm:ss")));
             itemVO.setPromoPrice(itemModel.getPromoModel().getPromoItemPrice());
-        }else {
+        } else {
             itemVO.setPromoStatus(0);
         }
         return itemVO;
