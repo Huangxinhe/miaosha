@@ -9,9 +9,7 @@ import java.io.Serializable;
 
 public class UserModel implements Serializable {
 
-
     private Integer id;
-
     @NotBlank(message = "用户名不能为空")
     private String name;
 
@@ -19,19 +17,24 @@ public class UserModel implements Serializable {
     private Byte gender;
 
     @NotNull(message = "年龄不能不填写")
-    @Max(value = 150,message = "年龄必须小于150岁")
     @Min(value = 0,message = "年龄必须大于0岁")
+    @Max(value = 150,message = "年龄必须小于150岁")
     private Integer age;
 
-    @NotBlank(message = "用手机号不能为空")
+    @NotBlank(message = "手机号不能为空")
     private String telphone;
-
     private String registerMode;
-
     private String thirdPartyId;
-
-    @NotBlank(message = "用密码不能为空")
+    @NotBlank(message = "密码不能为空")
     private String encrptPassword;
+
+    public String getEncrptPassword() {
+        return encrptPassword;
+    }
+
+    public void setEncrptPassword(String encrptPassword) {
+        this.encrptPassword = encrptPassword;
+    }
 
     public Integer getId() {
         return id;
@@ -53,8 +56,8 @@ public class UserModel implements Serializable {
         return gender;
     }
 
-    public void setGender(Integer gender) {
-        this.gender = gender.byteValue();
+    public void setGender(Byte gender) {
+        this.gender = gender;
     }
 
     public Integer getAge() {
@@ -81,10 +84,6 @@ public class UserModel implements Serializable {
         this.registerMode = registerMode;
     }
 
-    public void setGender(Byte gender) {
-        this.gender = gender;
-    }
-
     public String getThirdPartyId() {
         return thirdPartyId;
     }
@@ -93,11 +92,6 @@ public class UserModel implements Serializable {
         this.thirdPartyId = thirdPartyId;
     }
 
-    public String getEncrptPassword() {
-        return encrptPassword;
-    }
 
-    public void setEncrptPassword(String encrptPassword) {
-        this.encrptPassword = encrptPassword;
-    }
+
 }
