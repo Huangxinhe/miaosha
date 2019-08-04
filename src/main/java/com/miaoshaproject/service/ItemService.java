@@ -26,12 +26,19 @@ public interface ItemService {
     //验证item及promo缓存模型
     ItemModel getItemByIdInCache(Integer id);
 
-
-
     //库存扣减
     boolean decreaseStock(Integer itemId,Integer amount) throws BussinessException;
+
+    //库存回补
+    boolean increaseStock(Integer itemId,Integer amount) throws BussinessException;
+
+    //异步更新库存
+    boolean aysncDecreaseStock(Integer itemId,Integer amount);
 
     //商品销量增加
     void increaseSales(Integer itemId,Integer amount) throws BussinessException;
 
+
+    //初始化库存流水
+    String initStockLog(Integer itemId,Integer amount);
 }

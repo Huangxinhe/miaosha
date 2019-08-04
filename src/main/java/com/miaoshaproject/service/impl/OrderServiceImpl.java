@@ -2,8 +2,10 @@ package com.miaoshaproject.service.impl;
 
 import com.miaoshaproject.dao.OrderDOMapper;
 import com.miaoshaproject.dao.SequenceDOMapper;
+import com.miaoshaproject.dao.StockLogDOMapper;
 import com.miaoshaproject.dataobject.OrderDO;
 import com.miaoshaproject.dataobject.SequenceDO;
+import com.miaoshaproject.dataobject.StockLogDO;
 import com.miaoshaproject.error.BussinessException;
 import com.miaoshaproject.error.EmBussinessError;
 import com.miaoshaproject.service.ItemService;
@@ -17,6 +19,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.support.TransactionSynchronization;
+import org.springframework.transaction.support.TransactionSynchronizationManager;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -43,9 +47,12 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private SequenceDOMapper sequenceDOMapper;
 
+    @Autowired
+    private StockLogDOMapper stockLogDOMapper;
+
     @Override
     @Transactional
-    public OrderModel createOrder(Integer userId, Integer itemId, Integer promoId, Integer amount) throws BussinessException {
+    public OrderModel createOrder(Integer userId, Integer itemId, Integer promoId, Integer amount,String stockLogId) throws BussinessException {
 
         //1.校验下单状态，下单的商品是否存在，用户是否合法，购买数量是否正确
 //        ItemModel itemModel = itemService.getItemById(itemId);
@@ -102,8 +109,29 @@ public class OrderServiceImpl implements OrderService {
 
         //加上商品的销量
         itemService.increaseSales(itemId, amount);
-        //4.返回前端
 
+        //设置库存流水状态为成功
+        StockLogDO stockLogDO = stockLogDOMapper.selectByPrimaryKey(stockLogId);
+        if (stockLogDO == null){
+            throw new BussinessException(EmBussinessError.UNKNOWN_ERROR);
+        }
+        stockLogDO.setStatus(2);
+        stockLogDOMapper.updateByPrimaryKey(stockLogDO);
+//        TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronization() {
+//            @Override
+//            public void afterCommit() {
+//                //异步更新库存
+//                boolean mqResult = itemService.aysncDecreaseStock(itemId,amount);
+////                if (!mqResult){
+////                    itemService.increaseStock(itemId,amount);
+////                    throw new BussinessException(EmBussinessError.MQ_SEND_FAIL);
+////                }
+//            }
+//        });
+
+
+
+        //4.返回前端
         return orderModel;
     }
 
@@ -135,7 +163,6 @@ public class OrderServiceImpl implements OrderService {
         stringBuilder.append("00");
         return stringBuilder.toString();
     }
-
 
     private OrderDO convertFromOrderModel(OrderModel orderModel) {
         if (orderModel == null) {
